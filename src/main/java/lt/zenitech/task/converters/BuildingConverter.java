@@ -51,7 +51,7 @@ public class BuildingConverter {
         result.setSize(buildingEntity.getSize());
         result.setPropertyType(buildingEntity.getPropertyType());
         return result;
-    }
+}
 
     public List<Building> convert(List<BuildingEntity> buildingEntities) {
         return buildingEntities.stream().map(this::convert).collect(toList());

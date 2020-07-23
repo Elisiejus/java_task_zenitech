@@ -19,11 +19,12 @@ public class CityConverter {
     }
 
     public CityEntity convertToEntity(City city) {
-        if (city == null) {
-            return null;
+        CityEntity result;
+        if (city.getId() == null) {
+            result = new CityEntity();
+        } else {
+            result = cityRepository.findById(city.getId());
         }
-
-        CityEntity result = new CityEntity();
         result.setName(city.getName());
 
         return result;
