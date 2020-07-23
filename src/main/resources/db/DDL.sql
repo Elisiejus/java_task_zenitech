@@ -1,9 +1,5 @@
 -- DDL
 
-create database zenitech;
-
-use zenitech;
-
 create table city
 (
     id   bigint unsigned auto_increment primary key,
