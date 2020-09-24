@@ -33,3 +33,4 @@ create table building
     foreign key (address_id) references address (id),
     foreign key (person_id) references person (id)
 );
+drop schema zenitech;

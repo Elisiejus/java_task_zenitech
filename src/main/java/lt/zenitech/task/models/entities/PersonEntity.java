@@ -5,7 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "person")
@@ -18,7 +19,7 @@ public class PersonEntity extends AbstractEntity {
     private String last_name;
 
     @OneToMany(cascade = {CascadeType.ALL}, mappedBy = "person")
-    private List<BuildingEntity> buildingEntity;
+    private Set<BuildingEntity> buildingEntity = new HashSet<>();
 
     public String getName() { return name; }
 
@@ -28,9 +29,9 @@ public class PersonEntity extends AbstractEntity {
 
     public void setLast_name(String last_name) { this.last_name = last_name; }
 
-    public List<BuildingEntity> getBuildingEntity() { return buildingEntity; }
+    public Set<BuildingEntity> getBuildingEntity() { return buildingEntity; }
 
-    public void setBuildingEntity(List<BuildingEntity> buildingEntity) {
+    public void setBuildingEntity(Set<BuildingEntity> buildingEntity) {
         this.buildingEntity = buildingEntity;
     }
 }

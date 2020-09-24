@@ -19,8 +19,8 @@ import java.math.BigDecimal;
 @Table(name = "building")
 public class BuildingEntity extends AbstractEntity {
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, orphanRemoval = true)
-    @JoinColumn(name = "address_id", nullable = false)
+    @OneToOne
+    @JoinColumn
     private AddressEntity address;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})

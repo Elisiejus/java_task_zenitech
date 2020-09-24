@@ -39,9 +39,8 @@ public class BuildingController {
     public Building save(@RequestBody Building building) { return buildingService.save(building); }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete (@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         buildingService.delete(id);
-
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 

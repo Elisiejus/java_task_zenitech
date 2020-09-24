@@ -1,8 +1,13 @@
 package lt.zenitech.task.models.dto;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Id;
+
 public class City {
 
     private Long id;
+
     private String name;
 
     public City(Long id, String name) {

@@ -1,17 +1,6 @@
 package lt.zenitech.task.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "address")
@@ -23,13 +12,11 @@ public class AddressEntity extends AbstractEntity{
     @Column(name = "number", nullable = false)
     private int number;
 
-//    @JsonIgnore
-//    @MapsId
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "city_id")
+    @ManyToOne
+    @JoinColumn(name = "city_id", nullable = false)
     private CityEntity city;
 
-    @OneToOne(cascade = {CascadeType.ALL}, mappedBy = "address", orphanRemoval = true)
+    @OneToOne(mappedBy = "address")
     private BuildingEntity building;
 
     public BuildingEntity getBuilding() { return building; }

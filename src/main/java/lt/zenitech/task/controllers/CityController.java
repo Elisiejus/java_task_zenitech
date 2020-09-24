@@ -27,4 +27,5 @@ public class CityController {
 
     @PostMapping
     public City save (@RequestBody City city) { return cityService.save(city); }
+
 }

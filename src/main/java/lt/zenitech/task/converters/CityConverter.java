@@ -18,6 +18,7 @@ public class CityConverter {
         this.cityRepository = cityRepository;
     }
 
+
     public CityEntity convertToEntity(City city) {
         CityEntity result;
         if (city.getId() == null) {

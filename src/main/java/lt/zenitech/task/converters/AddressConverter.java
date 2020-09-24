@@ -12,11 +12,9 @@ import static java.util.stream.Collectors.toList;
 @Component
 public class AddressConverter {
 
-    private final AddressRepository addressRepository;
     private final CityConverter cityConverter;
 
-    public AddressConverter(AddressRepository addressRepository, CityConverter cityConverter) {
-        this.addressRepository = addressRepository;
+    public AddressConverter(CityConverter cityConverter) {
         this.cityConverter = cityConverter;
     }
 
@@ -39,12 +37,17 @@ public class AddressConverter {
     }
 
     public Address convert(AddressEntity address) {
-        return new Address(
-                address.getId(),
-                address.getStreet(),
-                address.getNumber(),
-                cityConverter.convert(address.getCity())
-        );
+
+        if (address == null) {
+            return null;
+        }
+        Address result = new Address();
+        result.setId(address.getId());
+        result.setStreet(address.getStreet());
+        result.setNumber(address.getNumber());
+        result.setCity(cityConverter.convert(address.getCity()));
+
+        return result;
     }
 }
 

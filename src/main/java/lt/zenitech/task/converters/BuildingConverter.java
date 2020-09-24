@@ -57,7 +57,6 @@ public class BuildingConverter {
         return buildingEntities.stream().map(this::convert).collect(toList());
     }
 
-
 }
 
 

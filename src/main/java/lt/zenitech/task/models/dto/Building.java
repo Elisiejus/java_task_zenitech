@@ -1,9 +1,14 @@
 package lt.zenitech.task.models.dto;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
 public class Building {
 
+    @Id
+    @NotNull
     private Long id;
 
     private Person person;

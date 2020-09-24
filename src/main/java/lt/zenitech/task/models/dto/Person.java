@@ -1,7 +1,13 @@
 package lt.zenitech.task.models.dto;
 
+import com.sun.istack.NotNull;
+
+import javax.persistence.Id;
+
 public class Person {
 
+    @Id
+    @NotNull
     private Long id;
     private String name;
     private String last_name;
